@@ -1,0 +1,15 @@
+name: Rebase
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '42 0 * * 0'
+
+jobs:
+  rebase:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 100
+      - uses: imba-tjd/rebase-upstream-action@master
